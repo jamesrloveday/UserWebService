@@ -16,14 +16,16 @@ interface DbConnector {
 
 class DbConnectorImpl : DbConnector {
 
+    val USER_STORE = "user_store"
+
     override fun  addNewUser(user: User): String {
-        val collection = getClient().getDatabase("user_store").getCollection<User>()
+        val collection = getClient().getDatabase(USER_STORE).getCollection<User>()
         collection.insertOne(user)
         return user._id
     }
 
     override fun findUser(id: String): User {
-        val collection = getClient().getDatabase("user_store").getCollection<User>()
+        val collection = getClient().getDatabase(USER_STORE).getCollection<User>()
         return collection.findOne("{_id: ${id.json}") ?: throw NullPointerException("User not found, try another id")
     }
 
