@@ -7,7 +7,7 @@ import org.litote.kmongo.MongoId
  * Created by james on 24/11/2016.
  */
 
-data class User(@MongoId val _id: String,
+data class User(@MongoId var _id: String,
                 @JsonProperty("first_name") val firstName: String?,
                 @JsonProperty("last_name") val lastName: String?,
                 @JsonProperty("email") val email: String,

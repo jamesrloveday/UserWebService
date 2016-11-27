@@ -24,7 +24,10 @@ class DbConnectorImpl : DbConnector {
     val USER_STORE = "user_store"
 
     override fun  addNewUser(user: User): String {
-        getClient().getDatabase(USER_STORE).getCollection<User>().insertOne(user)
+        val collection = getClient().getDatabase(USER_STORE).getCollection<User>()
+        val count = collection.count() + 1
+        user._id = count.toString()
+        collection.insertOne(user)
         return user._id
     }
 
