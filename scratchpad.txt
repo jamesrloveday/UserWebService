@@ -1,0 +1,13 @@
+ //check kmongo website docs
+    /**
+     * import org.litote.kmongo.*
+     * val client = KMongo.createClient() //get com.mongodb.MongoClient new instance
+    val database = client.getDatabase("test") //normal java driver usage
+    val collection = database.getCollection<Jedi>()
+
+     Document.parse(string)
+
+     val collection = getClient().getDatabase("user_store").getCollection<User>()
+
+     col.findOne("{jediName:${luke.name.json}}")
+     */
